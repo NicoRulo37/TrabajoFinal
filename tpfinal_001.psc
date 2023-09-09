@@ -12,12 +12,12 @@ Algoritmo ListaPacientes_y_Facturacion
 	// Ingreso a menu del sistema
 	Repetir
 		Limpiar Pantalla
-		Si continuar =='s' Entonces
+		Si continuar=='s' Entonces
 			Escribir '+--------------------------------------------------------------------+'
 			Escribir '| Ingrese que funcion desea realizar:                                |'
 			Escribir '| Opcion 1: Ingreso de datos de pacientes                            |'
 			Escribir '| Opcion 2: Control y datos de facturacion                           |'
-			Escribir '| Opcion 3: Información del paciente                                  |'
+			Escribir '| Opcion 3: Información del paciente                                 |'
 			Escribir '| Opcion 4: Poner 0 para salir                                       |'
 			Escribir '+--------------------------------------------------------------------+'
 			Leer menu
@@ -40,7 +40,6 @@ Algoritmo ListaPacientes_y_Facturacion
 			dias[3] <- 'Miércoles '
 			dias[4] <- 'Jueves '
 			dias[5] <- 'Viernes '
-			
 			// Cargo el Arreglo horas con los datos a mostrar en las diferentes posciones.
 			horas[1] <- '08:00 hs hasta 08:45 hs'
 			horas[2] <- '09:00 hs hasta 09:45 hs'
@@ -57,13 +56,13 @@ Algoritmo ListaPacientes_y_Facturacion
 					Escribir i, '_ ', dias[i]
 				FinPara
 				Leer diaElegido
-				Escribir 'Seleccione la hora para el turno:' // Selecciono el dia 
-				Para i<-1 Hasta 8 Hacer
+				Escribir 'Seleccione la hora para el turno:'
+				Para i<-1 Hasta 8 Hacer // Selecciono el dia 
 					Escribir i, ' Turno: ', horas[i]
 				FinPara
 				Leer horaElegida
-				salir <- 0 // Selecciono la hora  
-			Hasta Que salir==0
+				salir <- 0
+			Hasta Que salir==0 // Selecciono la hora  
 			Escribir 'Ingrese el nombre del paciente:'
 			Leer paciente
 			paciente <- paciente
@@ -79,8 +78,7 @@ Algoritmo ListaPacientes_y_Facturacion
 			Escribir 'Ingrese el cuit de la obrasocial:'
 			Leer cuit
 			cuit <- cuit
-			
-			Si sesiones == 0 Entonces
+			Si sesiones==0 Entonces
 				Escribir 'ingrese cantidad de sesiones por mes:'
 				Leer sesiones
 				sesiones <- sesiones
@@ -88,7 +86,6 @@ Algoritmo ListaPacientes_y_Facturacion
 			SiNo
 				x <- 1
 			FinSi
-			
 			Escribir '----------------------------------------------------'
 			Escribir 'Desea realizar otra funcion (S/N)'
 			Leer continuar
@@ -99,7 +96,7 @@ Algoritmo ListaPacientes_y_Facturacion
 			Escribir 'Ingresar numero de factura'
 			Leer facturanum
 			facturanum <- facturanum
-			Si sesiones == 0 Entonces
+			Si sesiones==0 Entonces
 				Escribir 'Ingrese valor de sesione por unidad: '
 				Leer importeunidad
 				importeunidad <- importeunidad
@@ -114,7 +111,7 @@ Algoritmo ListaPacientes_y_Facturacion
 				Leer importeunidad
 				importeunidad <- importeunidad
 				recibo <- importeunidad*sesiones
-				Escribir 'La cantidad a cobrar por la factura Nº ', facturanum, ' con ' sesiones ' sesiones del paciente es de :$', recibo
+				Escribir 'La cantidad a cobrar por la factura Nº ', facturanum, ' con ', sesiones, ' sesiones del paciente es de :$', recibo
 				z <- 1
 			FinSi
 			Escribir '----------------------------------------------------'
@@ -143,18 +140,17 @@ Algoritmo ListaPacientes_y_Facturacion
 			SiNo
 				Si z=1 Entonces
 					Escribir 'Faltan los datos del paciente por cargar'
-					sesiones = 0
+					sesiones <- 0
 				SiNo
 					Escribir 'Por favor ingrese los datos del paciente y de facturacion para poder mostrar el resultado'
 				FinSi
-				sesiones = 0
+				sesiones <- 0
 			FinSi
-			
 			Escribir '----------------------------------------------------'
 			Escribir 'Desea realizar otra funcion (S/N)'
 			Leer continuar
 			continuar <- Minusculas(continuar)
-			sesiones = 0
+			sesiones <- 0
 		FinSi
 		// Cobertura contra error de eleccion en el menu
 		Si menu>3 Entonces
